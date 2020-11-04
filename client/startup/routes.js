@@ -1,27 +1,28 @@
+import { FlowRouter } from 'meteor/ostrio:flow-router-extra';
 import { BlazeLayout } from 'meteor/kadira:blaze-layout';
-import { FlowRouter} from 'meteor/kadira:flow-router';
-
-// FlowRouter.route('/', {
-//   action() {
-//       BlazeLayout.render('layout', {
-//         footer: "footer",
-//         main: "home",
-//         nav: "nav",
-//       });  }
-// });
-
 
 FlowRouter.route('/', {
-    name: "home",
+  name: 'home',
+  action: function(params, queryParams) {
+    BlazeLayout.render('layout', {
+      footer: "footer",
+      main: "home",
+      nav: "nav",
+    });
+  }
+});
+
+FlowRouter.route('/about', {
+    name: "about",
     action: function(params, queryParams) {
       BlazeLayout.render('layout', {
         footer: "footer",
-        main: "home",
+        main: "about",
         nav: "nav",
       });
     }
   });
-  
+
 FlowRouter.route('/private', {
   name: "private",
   triggersEnter: [AccountsTemplates.ensureSignedIn],
@@ -44,22 +45,11 @@ FlowRouter.route('/sign-in', {
     });
   }
 });
-  
-//   FlowRouter.notFound = {
-//     action: function() {
-//       BlazeLayout.render('layout', {
-//         footer: "footer",
-//         main: "pageNotFound",
-//         nav: "nav",
-//       });
-//     }
-//   };
-  
 
 //Routes
-AccountsTemplates.configureRoute('changePwd');
+//AccountsTemplates.configureRoute('changePwd');
 AccountsTemplates.configureRoute('enrollAccount');
-AccountsTemplates.configureRoute('forgotPwd');
+//AccountsTemplates.configureRoute('forgotPwd');
 AccountsTemplates.configureRoute('resetPwd');
 AccountsTemplates.configureRoute('signIn');
 AccountsTemplates.configureRoute('signUp');
