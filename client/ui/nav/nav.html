@@ -3,6 +3,7 @@
     <div class="container">
       <div class="nav-wrapper">
         <a href="#" class="brand-logo">User Auth</a>
+        {{#if currentUser}}
         <ul id="nav-mobile" class="right side-nav fixed">
           <li class="{{isActiveRoute regex='home'}}">
             <a href="{{pathFor 'home'}}">Home</a>
@@ -13,11 +14,15 @@
           <li class="{{isActiveRoute regex='private'}}">
             <a href="{{pathFor 'private'}}">Private</a>
           </li>
-          <li class="{{isActiveRoute regex='signIn'}}">
-            <a href="{{pathFor 'signIn'}}">Sign In</a>
-          </li>
-          <li>{{> atNavButton }}</li>
+          <button class="btn btn-outline-secondary js-logout">
+            Déconnexion
+          </button>
         </ul>
+        {{else}}
+        <ul id="nav-mobile" class="right side-nav fixed">
+          <button class="btn btn-outline-secondary">Déconnexion</button>
+        </ul>
+        {{/if}}
       </div>
     </div>
   </nav>

@@ -24,11 +24,12 @@ insecure@1.0.7                # Allow all DB writes from clients (for prototypin
 
 accounts-base
 accounts-password
-#useraccounts:materialize
-useraccounts:unstyled
+useraccounts:materialize
+#useraccounts:unstyled
 #useraccounts:flow-routing
 mealsunite:flow-routing-extra
 softwarerero:accounts-t9n
 
 ostrio:flow-router-extra
 kadira:blaze-layout
+aldeed:template-extension # template replacement functionality
